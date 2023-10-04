@@ -1,19 +1,3 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-}
-
 a {
   font-weight: 500;
   color: #646cff;
@@ -24,11 +8,10 @@ a:hover {
 }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  background-image: url("./concrete.jpg"); /* The image used as a background. */
+  background-repeat: no-repeat; /* The background image will not repeat. */
+  background-attachment: fixed; /* The background image will not scroll with the page. */
+  background-size: cover;
 }
 
 h1 {
@@ -36,7 +19,7 @@ h1 {
   line-height: 1.1;
 }
 
-button {
+/* button {
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
@@ -53,6 +36,62 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+} */
+
+.players {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+   /* The player cards are displayed using flexbox. */
+ /* The player cards will wrap onto the next line if there is not enough space. */
+ /* The player cards are centered on the line. */
+}
+
+.player-card {
+  width: 500px; /* The width of the card. */
+  height: 700px; /* The height of the card. */
+  margin: 10px; /* The margin around the card. */
+  background-color: rgb(136, 110, 62);/* The background color of the card. */
+  border: 2pt solid black;/* The border around the card. */
+  border-radius: 5px;/* The radius of the card's corners. */
+  overflow: hidden; /* Any content that goes outside the card will be hidden. */
+  position: relative; /* The card's position is set to relative so it can be moved using the transform property. */
+  transition: transform 0.3s; /* Transition effect for the transform property. */
+}
+
+/* Styling for when a user hovers over a player card. */
+.player-card:hover {
+  border: 2pt solid rgb(221, 215, 43);
+  /* The card moves up 5 pixels when hovered over. */
+}
+
+/* Styling for the container that holds the player's image. */
+.player-image-container {
+  /* The image is centered. */
+ /* The image is centered along the horizontal axis. */
+  /* The image is centered along the vertical axis. */
+  height: 300px; /* The height of the image container. */
+  padding: 10px; /* The padding around the image. */
+}
+
+/* Styling for the player's image. */
+.player-image {
+  width: 100%; /* The width of the image. */
+  height: 600px; /* The height of the image. */
+  /*The image will cover the entire area of its container without distorting its aspect ratio. */
+  /* The image is displayed using CSS Grid. */
+ /* The margin to the left of the image. */
+}
+
+/* Styling for the player's details (name, breed, status). */
+.player-details {
+  flex-direction: column; /* The details are arranged in a column. */
+  align-items: center; /* The details are centered along the vertical axis. */
+  justify-content: center; /* The details are centered along the horizontal axis. */
+  color: #000; /* The color of the details text. */
+  font-size: 16px; /* The size of the details text. */
+  text-align: center; /* The details text is centered. */
 }
 
 @media (prefers-color-scheme: light) {

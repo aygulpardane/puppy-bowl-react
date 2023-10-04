@@ -20,7 +20,7 @@ const Players = () => {
     }, [])
     console.log(players)
     return (
-        <div>
+        <div className="players">
             {players.map((player) => {
                 return (
                     <div key={player.id} className="player-card">
