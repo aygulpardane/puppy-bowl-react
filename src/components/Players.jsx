@@ -8,6 +8,7 @@ import SearchForm from "./SearchForm";
 
 const Players = () => {
     const [players, setPlayers] = useState([]);
+    const [puppyFilter, setPuppyFilter] = useState("");
 
     useEffect(() => {
         async function fetchData () {
@@ -25,21 +26,23 @@ const Players = () => {
     console.log(players)
     return (
         <div>
-            <SearchForm />
+            <SearchForm setPuppyFilter={setPuppyFilter}/>
             <div className="players">
-                {players.map((player) => {
+                {players.filter((player) => {
+                    return player.name.toLowerCase().includes(puppyFilter.toLowerCase());
+                }).map((player) => {
                     return (
                         <div key={player.id} className="player-card">
                             <div className="player-details">
                                 <h2> {player.name} </h2>
 
-                                <p>  {player.breed} </p>
+                                <p>  Breed: {player.breed} </p>
 
-                                <p> {player.status} </p>
+                                <p> Status: {player.status} </p>
 
                                 <DetailsButton playerId={player.id}/>
                                 <br/>
-                                <DeleteButton />
+                                <DeleteButton playerId={player.id} players={players} setPlayers={setPlayers} />
                                 <br/>
                                 <img className="player-image" src={player.imageUrl} alt={player.name}/>
                             </div>
