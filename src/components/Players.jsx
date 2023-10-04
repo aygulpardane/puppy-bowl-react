@@ -37,7 +37,7 @@ const Players = () => {
                             <DetailsButton />
                             <br/>
                             <DeleteButton />
-
+                            <br/>
                             <img className="player-image" src={player.imageUrl} alt={player.name}/>
                         </div>
                     </div>

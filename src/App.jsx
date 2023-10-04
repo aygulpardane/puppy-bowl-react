@@ -2,11 +2,15 @@
 import React from "react";
 import './App.css';
 import Players from "./components/Players";
+import SearchForm from "./components/SearchForm";
 
 function App() {
 
   return (
-    <Players />
+    <div>
+      <SearchForm />
+      <Players />
+    </div>
   )
 }
 
