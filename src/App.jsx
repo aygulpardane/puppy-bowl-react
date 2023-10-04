@@ -3,13 +3,17 @@ import React from "react";
 import './App.css';
 import Players from "./components/Players";
 import SearchForm from "./components/SearchForm";
+import {Routes, Route} from "react-router-dom";
+import SinglePlayer from "./components/SinglePlayer";
 
 function App() {
 
   return (
     <div>
-      <SearchForm />
-      <Players />
+      <Routes>
+        <Route path="/:id" element={<SinglePlayer />} />
+        <Route path="/" element={<Players />} />
+      </Routes>
     </div>
   )
 }

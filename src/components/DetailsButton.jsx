@@ -2,11 +2,15 @@
 import React from "react";
 import {useState, useEffect} from "react";
 import "../../src/index.css";
+import {useNavigate} from "react-router-dom";
 
-const DetailsButton = () => {
+const DetailsButton = ({playerId}) => {
+    const navigate = useNavigate();
     return (
         <div>
-            <button>Find Out More About Me!</button>
+            <button onClick={() => navigate(`/${playerId}`)}>
+                Find Out More About Me!
+            </button>
         </div>
     )
 }

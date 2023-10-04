@@ -4,6 +4,7 @@ import {useState, useEffect} from "react";
 import "../../src/index.css";
 import DetailsButton from "./DetailsButton";
 import DeleteButton from "./DeleteButton";
+import SearchForm from "./SearchForm";
 
 const Players = () => {
     const [players, setPlayers] = useState([]);
@@ -23,26 +24,29 @@ const Players = () => {
     }, [])
     console.log(players)
     return (
-        <div className="players">
-            {players.map((player) => {
-                return (
-                    <div key={player.id} className="player-card">
-                        <div className="player-details">
-                            <h2> {player.name} </h2>
+        <div>
+            <SearchForm />
+            <div className="players">
+                {players.map((player) => {
+                    return (
+                        <div key={player.id} className="player-card">
+                            <div className="player-details">
+                                <h2> {player.name} </h2>
 
-                            <p>  {player.breed} </p>
+                                <p>  {player.breed} </p>
 
-                            <p> {player.status} </p>
+                                <p> {player.status} </p>
 
-                            <DetailsButton />
-                            <br/>
-                            <DeleteButton />
-                            <br/>
-                            <img className="player-image" src={player.imageUrl} alt={player.name}/>
+                                <DetailsButton playerId={player.id}/>
+                                <br/>
+                                <DeleteButton />
+                                <br/>
+                                <img className="player-image" src={player.imageUrl} alt={player.name}/>
+                            </div>
                         </div>
-                    </div>
-                );
-            })};
+                    );
+                })};
+            </div>
         </div>
     );
   };
