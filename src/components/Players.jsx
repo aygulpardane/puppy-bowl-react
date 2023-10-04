@@ -23,10 +23,16 @@ const Players = () => {
         <div>
             {players.map((player) => {
                 return (
-                    <div key={player.id}>
-                        <h6>
-                            {player.name}
-                        </h6>
+                    <div key={player.id} className="player-card">
+                        <div className="player-details">
+                            <h2> {player.name} </h2>
+
+                            <p>  {player.breed} </p>
+
+                            <p> {player.status} </p>
+
+                            <img className="player-image" src={player.imageUrl} alt={player.name}/>
+                        </div>
                     </div>
                 );
             })};
