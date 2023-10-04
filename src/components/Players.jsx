@@ -1,6 +1,9 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
 import {useState, useEffect} from "react";
+import "../../src/index.css";
+import DetailsButton from "./DetailsButton";
+import DeleteButton from "./DeleteButton";
 
 const Players = () => {
     const [players, setPlayers] = useState([]);
@@ -30,6 +33,10 @@ const Players = () => {
                             <p>  {player.breed} </p>
 
                             <p> {player.status} </p>
+
+                            <DetailsButton />
+                            <br/>
+                            <DeleteButton />
 
                             <img className="player-image" src={player.imageUrl} alt={player.name}/>
                         </div>
